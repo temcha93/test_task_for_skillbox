@@ -1,0 +1,15 @@
+words, words_list = dict(), []
+
+for _ in range(int(input())):
+    for word in input().split():
+        if word not in words:
+            words[word] = 1
+        else:
+            words[word] += 1
+
+for key, value in words.items():
+    words_list.append((value, key))
+
+words_list.sort(key=lambda x: (-x[0], x[1]))
+
+print('\n'.join(x[1] + ' ' + str(x[0]) for x in words_list))
